@@ -31,73 +31,37 @@ var usb = new Image('usb', 'img/usb.jpg');
 var watercan = new Image('watercan', 'img/water-can.jpg');
 var wineglass = new Image('wineglass', 'img/wine-glass.jpg');
 
-// function getFirstImage () {
-//   var randomNumber = Math.floor(Math.random() * 20);
-//   var firstChosenImage = allProducts[randomNumer].filepath;
-//   var parentEl = document.getElementById('image-container');
-//   var imageEL = document.createElement('img');
-//   imageEl.src = chosenImage;
-//   parentEl.appendChild(imageEl);
-//   return firstChosenImage;
-// }
-//
-// function getSecondImage(firstChosenImage) {
-//   var randomNumber = Math.floor(Math.random() * 20);
-//
-// }
-//
-// function getRandomImage () {
-//   var randomNumber = Math.floor(Math.random() * 20);
-//   var chosenImage = allProducts[randomNumber].filepath;
-//   return chosenImage;
-// }
-//
-// function appendToPage (chosenImage) {
-//   var parentEl = document.getElementByd('image-container');
-//   var imageEl = document.createElement('img');
-//   imageEl.src = chosenImage;
-//   parentEl.appendChild(imageEl);
-// }
-
-
-
-function renderFirstImageToPage() {
-  var firstRandomNumber = Math.floor(Math.random() * 20);
-  var chosenImage = allProducts[firstRandomNumber].filepath;
+function handleClicks () {
+  var parentNode = document.getElementById('image-container');
+  while (parentNode.firstChild) {
+    parentNode.removeChild(parentNode.firstChild);
+  };
+  var randomNumber = Math.floor(Math.random() * 20);
+  var chosenProduct = allProducts[randomNumber].filepath;
   var parentEl = document.getElementById('image-container');
-  var imageEl = document.createElement('img');
-  imageEl.src = chosenImage;
-  parentEl.appendChild(imageEl);
-  return firstRandomNumber;
-}
-
-function renderSecondImageToPage(firstRandomNumber) {
-  var secondRandomNumber = Math.floor(Math.random() * 20);
-  if (secondRandomNumber == firstRandomNumber) {
-    var secondRandomNumber = Math.floor(Math.random() * 20);
-  } else {
-    var chosenImage = allProducts[secondRandomNumber].filepath;
-    var parentEl = document.getElementById('image-container');
-    var imageEl = document.createElement('img');
-    imageEl.src = chosenImage;
-    parentEl.appendChild(imageEl);
+  var imgEl = document.createElement('img');
+  imgEl.src = chosenProduct;
+  parentEl.appendChild(imgEl);
+  var randomNumberTwo = Math.floor(Math.random() * 20);
+  while (randomNumberTwo == randomNumber) {
+    var randomNumberTwo = Math.floor(Math.random() * 20);
   }
-  return secondRandomNumber;
-}
-
-function renderThirdImageToPage(firstRandomNumber, secondRandomNumber) {
-  var thirdRandomNumber = Math.floor(Math.random() * 20);
-  if (thirdRandomNumber == firstRandomNumber || thirdRandomNumber == secondRandomNumber) {
-    var thirdRandomNumber = Math.floor(Math.random() * 20);
-  } else {
-    var chosenImage = allProducts[thirdRandomNumber].filepath;
-    var parentEl = document.getElementById('image-container');
-    var imageEl = document.createElement('img');
-    imageEl.src = chosenImage;
-    parentEl.appendChild(imageEl);
+  var chosenProduct = allProducts[randomNumberTwo].filepath;
+  var parentEl = document.getElementById('image-container');
+  var imgEl = document.createElement('img');
+  imgEl.src = chosenProduct;
+  parentEl.appendChild(imgEl);
+  var randomNumberThree = Math.floor(Math.random() * 20);
+  while (randomNumberThree == randomNumberTwo || randomNumberThree == randomNumber) {
+    var randomNumberThree = Math.floor(Math.random() * 20);
   }
+  var chosenProduct = allProducts[randomNumberThree].filepath;
+  var parentEl = document.getElementById('image-container');
+  var imgEl = document.createElement('img');
+  imgEl.src = chosenProduct;
+  parentEl.appendChild(imgEl);
 }
 
-var poop = renderFirstImageToPage();
-var poop2 = renderSecondImageToPage(poop);
-renderThirdImageToPage(poop, poop2);
+handleClicks();
+var placetoclick = document.getElementById('image-container');
+placetoclick.addEventListener('click', handleClicks);
