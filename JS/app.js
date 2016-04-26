@@ -84,18 +84,81 @@ displayPics();
 function handleClicks (event) {
   makeRandomNumberArray();
   totalClicks += 1;
-  var clickedObject = event.target.src;
-  console.log('This is the event.target.src of the object clicked' + clickedObject);
-  displayPics();
+  if (totalClicks < 26) {
+    var clickedObject = event.target.src;
+    console.log('This is the event.target.src of the object clicked' + clickedObject);
+    displayPics();
 
-  //iterate through the allProducts array, and see if the src of the event target matches, if it does, increment
-  for (var i = 0; i < allProducts.length; i++) {
-    if (clickedObject === allProducts[i].filepath) {
-      allProducts[i].numClicked += 1;
+    //iterate through the allProducts array, and see if the src of the event target matches, if it does, increment
+    for (var i = 0; i < allProducts.length; i++) {
+      if (clickedObject === allProducts[i].filepath) {
+        allProducts[i].numClicked += 1;
+      }
     }
+  } else {
+    drawChart();
   }
 }
 
 imageNodeOne.addEventListener('click', handleClicks);
 imageNodeTwo.addEventListener('click', handleClicks);
 imageNodeThree.addEventListener('click', handleClicks);
+
+//Draw Chart
+
+function drawChart () {
+  var chartLabels = [];
+  for (var i = 0; i < allProducts.length; i++) {
+    chartLabels.push(allProducts[i].name);
+  }
+
+  var clicked = [];
+  for (var i = 0; i < allProducts.length; i++) {
+    clicked.push(allProducts[i].numClicked);
+    console.log(clicked);
+  }
+
+  var shown = [];
+  for (var i = 0; i < allProducts.length; i++) {
+    shown.push(allProducts[i].numShown);
+    console.log(shown);
+  }
+
+  var data = {
+    labels: chartLabels,
+    datasets: [
+      {
+        label: 'Number Shown',
+
+        backgroundColor: 'rgba(255,99,132,0.2)',
+        borderColor: 'rgba(255,99,132,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
+        hoverBorderColor: 'rgba(255,99,132,1)',
+        // The actual data
+        data: shown,
+
+        yAxisID: 'y-axis-0',
+      },
+      {
+        label: 'Number clicked',
+        backgroundColor: 'rgba(54,162,235,0.2)',
+        borderColor: 'rgba(54,162,235,1)',
+        borderWidth: 1,
+        hoverBackgroundColor: 'rgba(54,162,235,0.4)',
+        hoverBorderColor: 'rgba(54,162,235,1)',
+        data: clicked,
+      }
+    ]
+  };
+
+  var myChart = document.getElementById('my-chart').getContext('2d');
+
+  var myBarChart = new Chart(myChart, {
+    type: 'bar',
+    data: data,
+    options: {
+      responsive: true
+    }
+  });
+}
