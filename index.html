@@ -3,13 +3,24 @@
   <head>
     <meta charset="utf-8">
     <title>BusMall</title>
+    <link rel="stylesheet" type="text/css" href="CSS/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.1/Chart.min.js"></script>
   </head>
+
   <body>
-    <div id = "image-container">
+
+    <img class="headerlogo" src="img/logo.png"></img>
+    <hr>
+
+    <div class = "image-container">
       <img id ="image-one"></img>
       <img id ="image-two"></img>
       <img id ="image-three"></img>
+    </div>
+
+    <div class="button-container">
+      <button class ="aftertrial" id="moretrials">10 More Trials</button>
+      <button class = "aftertrial" id="showchart">Show Results</button>
     </div>
 
     <canvas id="my-chart"></canvas>
