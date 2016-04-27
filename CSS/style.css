@@ -47,6 +47,10 @@ button:hover {
 
 }
 
-img:hover {
+/*img:hover {
+  height: 225px;
+}*/
+
+.c:hover {
   height: 225px;
 }
