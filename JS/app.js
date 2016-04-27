@@ -87,7 +87,7 @@ function handleClicks (event) {
   document.getElementById('showchart').style.display = 'none';
   makeRandomNumberArray();
   totalClicks += 1;
-  if (totalClicks < 5) {
+  if (totalClicks < 26) {
     var clickedObject = event.target.src;
     console.log('This is the event.target.src of the object clicked' + clickedObject);
     displayPics();
@@ -133,11 +133,11 @@ function drawChart () {
       {
         label: 'Number Shown',
 
-        backgroundColor: 'rgba(255,99,132,0.2)',
-        borderColor: 'rgba(255,99,132,1)',
+        backgroundColor: 'rgba(100, 249, 82, 0.2)',
+        borderColor: 'rgba(19, 94, 18, 1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-        hoverBorderColor: 'rgba(255,99,132,1)',
+        hoverBackgroundColor: 'rgba(100, 249, 82, 0.2)',
+        hoverBorderColor: 'rgba(19, 94, 18, 1)',
         // The actual data
         data: shown,
 
