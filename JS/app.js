@@ -135,10 +135,10 @@ function drawChart () {
       {
         label: 'Number Shown',
 
-        backgroundColor: 'rgba(100, 249, 82, 0.2)',
+        backgroundColor: 'rgba(32, 134, 19, 0.36)',
         borderColor: 'rgba(19, 94, 18, 1)',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(100, 249, 82, 0.2)',
+        hoverBackgroundColor: 'rgba(32, 134, 19, 0.36)',
         hoverBorderColor: 'rgba(19, 94, 18, 1)',
         // The actual data
         data: shown,
@@ -147,10 +147,10 @@ function drawChart () {
       },
       {
         label: 'Number clicked',
-        backgroundColor: 'rgba(19, 21, 23, 0.2)',
+        backgroundColor: 'rgba(18, 21, 23, 0.5)',
         borderColor: 'rgba(59, 76, 87, 1))',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(19, 21, 23, 0.2)',
+        hoverBackgroundColor: 'rgba(18, 21, 23, 0.5)',
         hoverBorderColor: 'rgba(59, 76, 87, 1)',
         data: clicked,
       }
