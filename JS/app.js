@@ -88,7 +88,9 @@ function handleClicks (event) {
   makeRandomNumberArray();
   totalClicks += 1;
   if (totalClicks < 26) {
+
     var clickedObject = event.target.src;
+    console.log(clickedObject);
     console.log('This is the event.target.src of the object clicked' + clickedObject);
     displayPics();
 
@@ -145,11 +147,11 @@ function drawChart () {
       },
       {
         label: 'Number clicked',
-        backgroundColor: 'rgba(54,162,235,0.2)',
-        borderColor: 'rgba(54,162,235,1)',
+        backgroundColor: 'rgba(19, 21, 23, 0.2)',
+        borderColor: 'rgba(59, 76, 87, 1))',
         borderWidth: 1,
-        hoverBackgroundColor: 'rgba(54,162,235,0.4)',
-        hoverBorderColor: 'rgba(54,162,235,1)',
+        hoverBackgroundColor: 'rgba(19, 21, 23, 0.2)',
+        hoverBorderColor: 'rgba(59, 76, 87, 1)',
         data: clicked,
       }
     ]
